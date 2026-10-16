@@ -145,9 +145,6 @@
           <button type="button" data-tab="deepdive" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800/60">
             🔬 個股技術與基本面剖析
           </button>
-          <button type="button" data-tab="automation" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800/60">
-            ⚙️ 每小時排程與部署中心
-          </button>
         </nav>
 
         <div class="hidden lg:flex items-center gap-2">
@@ -857,132 +854,6 @@
       </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- TAB 4: HOURLY AUTOMATION & DEPLOY CENTER   -->
-    <!-- ========================================== -->
-    <section id="tab-automation" class="hidden space-y-5">
-      <div class="glass-panel-glow rounded-2xl p-5">
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div>
-            <span class="text-xs font-mono-num text-cyan-400 uppercase tracking-wider">// ZERO-COST GITHUB ACTIONS + GITHUB PAGES ARCHITECTURE</span>
-            <h2 class="text-lg font-bold text-white mt-0.5">
-              如何讓你的 Python 選股策略在每天開盤每小時自動跑一次並更新到網址？
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1">
-              我已經幫你把上傳的 <code class="text-cyan-300">screen.py</code> 與 <code class="text-cyan-300">fundamentals.py</code> 整合成全自動專案包（包含 <code class="text-amber-300">scripts/run_hourly.py</code> 與 <code class="text-amber-300">.github/workflows/hourly_screener.yml</code>），完全免費且免租伺服器。
-            </p>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="px-3 py-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono-num font-semibold">
-              ✓ 週一至週五 09:05~13:05 每小時自動執行
-            </span>
-          </div>
-        </div>
-
-        <!-- 3-Step Visual Deployment Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
-          <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-800">
-            <div class="text-xs font-mono-num text-cyan-400 font-bold mb-1">STEP 01 // 上傳專案壓縮包</div>
-            <h3 class="text-sm font-bold text-white mb-1.5">建立 GitHub 儲存庫並上傳檔案</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              下載對話中附上的 <code class="text-cyan-300">tw_quant_strategy_site.zip</code> 解壓縮，在 GitHub 建立一個新的公開儲存庫（例如 <code class="text-white">tw-quant-terminal</code>），把資料夾內的 <code class="text-slate-200">index.html</code>、<code class="text-slate-200">scripts/</code>、<code class="text-slate-200">data/</code> 與 <code class="text-slate-200">.github/workflows/</code> 上傳上去。
-            </p>
-          </div>
-          <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-800">
-            <div class="text-xs font-mono-num text-amber-400 font-bold mb-1">STEP 02 // 啟用專屬網址</div>
-            <h3 class="text-sm font-bold text-white mb-1.5">開啟 GitHub Pages 免費靜態網站</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              進入儲存庫的 <strong>Settings → Pages</strong>，將 Branch 選為 <code class="text-white">main</code> / <code class="text-white">/(root)</code> 並按 Save。1 分鐘後即可獲得你的專屬網址：<br/>
-              <code class="text-cyan-300">https://&lt;你的帳號&gt;.github.io/tw-quant-terminal/</code>
-            </p>
-          </div>
-          <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-800">
-            <div class="text-xs font-mono-num text-rose-400 font-bold mb-1">STEP 03 // 開盤每小時自動更新</div>
-            <h3 class="text-sm font-bold text-white mb-1.5">GitHub Actions 定時跑 Python 並推播</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              每個交易日 <strong>09:05、10:05、11:05、12:05、13:05</strong> 雲端會自動以 <code class="text-rose-300">--intraday</code> 模式掃描全市場 1,800+ 檔台股，<strong>13:35 與 16:35</strong> 跑收盤與法人籌碼完整版，自動將結果寫回 <code class="text-white">data/latest_scan.json</code> 刷新網頁！
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive CLI Command Builder -->
-      <div class="glass-panel rounded-2xl p-5 space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div>
-            <span class="text-xs font-mono-num text-amber-400 uppercase tracking-wider">// INTERACTIVE COMMAND GENERATOR</span>
-            <h3 class="text-base font-bold text-white">選股策略參數自訂產生器（支援本機測試與 GitHub Actions）</h3>
-          </div>
-          <button id="copyCliCmdBtn" type="button" class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-xs font-semibold text-white transition">
-            📋 複製執行指令
-          </button>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          <div>
-            <label for="cmdMode" class="block text-[11px] text-slate-400 mb-1">執行模式</label>
-            <select id="cmdMode" class="cmd-param-input w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white">
-              <option value="--force-intraday" selected>盤中模式 (--intraday)</option>
-              <option value="--force-close">收盤完整模式</option>
-              <option value="">依時間自動判斷</option>
-            </select>
-          </div>
-          <div>
-            <label for="cmdKdWithin" class="block text-[11px] text-slate-400 mb-1">KD 金叉天數 (--kd-within)</label>
-            <input id="cmdKdWithin" type="number" value="1" min="1" max="10" class="cmd-param-input w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white font-mono-num" />
-          </div>
-          <div>
-            <label for="cmdDays" class="block text-[11px] text-slate-400 mb-1">外資連買天數 (--days)</label>
-            <input id="cmdDays" type="number" value="2" min="0" max="15" class="cmd-param-input w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white font-mono-num" />
-          </div>
-          <div>
-            <label for="cmdMinLots" class="block text-[11px] text-slate-400 mb-1">最低成交張數 (--min-lots)</label>
-            <input id="cmdMinLots" type="number" value="0" min="0" step="100" class="cmd-param-input w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white font-mono-num" />
-          </div>
-          <div>
-            <label for="cmdBrokerDays" class="block text-[11px] text-slate-400 mb-1">分點家數天數 (--broker-days)</label>
-            <input id="cmdBrokerDays" type="number" value="3" min="0" max="15" class="cmd-param-input w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white font-mono-num" />
-          </div>
-          <div>
-            <label for="cmdConcMin" class="block text-[11px] text-slate-400 mb-1">20日集中度% (--conc-min)</label>
-            <input id="cmdConcMin" type="number" value="5" min="0" max="50" class="cmd-param-input w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white font-mono-num" />
-          </div>
-        </div>
-
-        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 font-mono-num text-xs text-cyan-300 overflow-x-auto">
-          <code id="generatedCliCmd">python scripts/run_hourly.py --force-intraday --kd-within 1 --days 2 --min-lots 0 --broker-days 3 --conc-min 5</code>
-        </div>
-      </div>
-
-      <!-- Code Viewers for GitHub Actions YAML & run_hourly.py -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <div class="glass-panel rounded-2xl p-4 flex flex-col">
-          <div class="flex items-center justify-between mb-2.5">
-            <div>
-              <span class="text-[11px] font-mono-num text-cyan-400">.github/workflows/hourly_screener.yml</span>
-              <h3 class="text-sm font-bold text-white">GitHub Actions 開盤每小時自動排程設定檔</h3>
-            </div>
-            <button id="copyWorkflowBtn" type="button" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-cyan-300 border border-slate-700">
-              複製 YAML
-            </button>
-          </div>
-          <pre id="workflowCodeBlock" class="flex-1 p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] font-mono-num text-slate-300 overflow-x-auto max-h-96"></pre>
-        </div>
-
-        <div class="glass-panel rounded-2xl p-4 flex flex-col">
-          <div class="flex items-center justify-between mb-2.5">
-            <div>
-              <span class="text-[11px] font-mono-num text-amber-400">scripts/run_hourly.py</span>
-              <h3 class="text-sm font-bold text-white">每小時選股＋基本面自動整合執行器</h3>
-            </div>
-            <button id="copyRunnerBtn" type="button" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-amber-300 border border-slate-700">
-              複製 Python
-            </button>
-          </div>
-          <pre id="runnerCodeBlock" class="flex-1 p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] font-mono-num text-slate-300 overflow-x-auto max-h-96"></pre>
-        </div>
-      </div>
-    </section>
 
   </main>
 
@@ -3438,7 +3309,7 @@
 
     function switchTab(tabId) {
       appState.activeTab = tabId;
-      ["screener", "report", "deepdive", "automation"].forEach(id => {
+      ["screener", "report", "deepdive"].forEach(id => {
         const sec = document.getElementById("tab-" + id);
         if (sec) {
           sec.classList.toggle("hidden", id !== tabId);
@@ -3457,23 +3328,6 @@
       } else if (tabId === "deepdive") {
         renderDeepDive();
       }
-    }
-
-    function updateCliGenerator() {
-      const mode = document.getElementById("cmdMode").value;
-      const kd = document.getElementById("cmdKdWithin").value || "1";
-      const days = document.getElementById("cmdDays").value || "2";
-      const minLots = document.getElementById("cmdMinLots").value || "0";
-      const broker = document.getElementById("cmdBrokerDays").value || "3";
-      const conc = document.getElementById("cmdConcMin").value || "5";
-
-      const parts = ["python scripts/run_hourly.py"];
-      if (mode) parts.push(mode);
-      parts.push(`--kd-within ${kd}`, `--days ${days}`);
-      if (Number(minLots) > 0) parts.push(`--min-lots ${minLots}`);
-      parts.push(`--broker-days ${broker}`, `--conc-min ${conc}`);
-
-      document.getElementById("generatedCliCmd").textContent = parts.join(" ");
     }
 
     function exportCurrentCsv() {
@@ -3545,10 +3399,6 @@
     }
 
     window.addEventListener("DOMContentLoaded", () => {
-      // Populate Automation Code Blocks
-      document.getElementById("workflowCodeBlock").textContent = WORKFLOW_YAML_TEXT;
-      document.getElementById("runnerCodeBlock").textContent = RUN_HOURLY_PY_TEXT;
-
       // Tab navigation listeners
       document.querySelectorAll(".nav-tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -3603,21 +3453,6 @@
       document.getElementById("deepDiveStockSelect").addEventListener("change", e => {
         appState.selectedStockCode = e.target.value;
         renderDeepDive();
-      });
-
-      // CLI Builder listeners
-      document.querySelectorAll(".cmd-param-input").forEach(el => {
-        el.addEventListener("input", updateCliGenerator);
-        el.addEventListener("change", updateCliGenerator);
-      });
-      document.getElementById("copyCliCmdBtn").addEventListener("click", () => {
-        copyTextSafe(document.getElementById("generatedCliCmd").textContent, "執行指令");
-      });
-      document.getElementById("copyWorkflowBtn").addEventListener("click", () => {
-        copyTextSafe(WORKFLOW_YAML_TEXT, "GitHub Actions YAML");
-      });
-      document.getElementById("copyRunnerBtn").addEventListener("click", () => {
-        copyTextSafe(RUN_HOURLY_PY_TEXT, "run_hourly.py 腳本");
       });
 
       // JSON Modal controls

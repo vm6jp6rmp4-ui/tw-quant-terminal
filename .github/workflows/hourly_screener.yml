@@ -1,0 +1,80 @@
+name: Hourly Taiwan Stock Screener & Pages Deploy
+
+on:
+  schedule:
+    # 台股開盤期間（週一至週五）：台灣時間 09:05, 10:05, 11:05, 12:05, 13:05 (UTC 01:05 ~ 05:05)
+    - cron: '5 1,2,3,4,5 * * 1-5'
+    # 台股收盤定稿：台灣時間 13:35 (UTC 05:35)
+    - cron: '35 5 * * 1-5'
+    # 盤後三大法人/分點籌碼公布後：台灣時間 16:35 (UTC 08:35)
+    - cron: '35 8 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: '執行模式 (auto / intraday / close)'
+        required: false
+        default: 'auto'
+      kd_within:
+        description: 'KD 黃金交叉天數 (--kd-within)'
+        required: false
+        default: '1'
+      foreign_days:
+        description: '外資連續買超天數 (--days)'
+        required: false
+        default: '2'
+
+permissions:
+  contents: write
+
+# 避免前一次還沒跑完、下一次又開始，兩個同時 push 互相衝突
+concurrency:
+  group: tw-screener
+  cancel-in-progress: false
+
+jobs:
+  screen-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Taiwan Stock Screener (All Listed & OTC Stocks)
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+          TZ: Asia/Taipei
+        run: |
+          EXTRA_ARGS="--kd-within ${{ github.event.inputs.kd_within || '1' }} --days ${{ github.event.inputs.foreign_days || '2' }}"
+          if [ "${{ github.event.inputs.mode }}" = "intraday" ]; then
+            python scripts/run_hourly.py --force-intraday $EXTRA_ARGS
+          elif [ "${{ github.event.inputs.mode }}" = "close" ]; then
+            python scripts/run_hourly.py --force-close $EXTRA_ARGS
+          else
+            python scripts/run_hourly.py $EXTRA_ARGS
+          fi
+
+      - name: Commit and push updated screening results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No changes in data/"
+            exit 0
+          fi
+          git commit -m "chore(screener): update scan $(TZ=Asia/Taipei date +'%Y-%m-%d %H:%M')"
+          # push 失敗時重試（例如你剛好同時在網頁上改檔案）
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

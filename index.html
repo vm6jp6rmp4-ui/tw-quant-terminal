@@ -2391,7 +2391,9 @@
         document.getElementById("currentSlotModeTag").textContent = d.intraday ? "盤中即時快篩 (--intraday)" : "收盤模式";
         document.getElementById("elapsedSecLabel").textContent = (d.elapsed_sec || 0) + " 秒";
         document.getElementById("slotNoteText").textContent = scanNote(d);
-        document.getElementById("asOfDateLabel").textContent = d.as_of || "—";
+        const scanDay = (d.generated_at_tw || "").slice(0, 10) || d.as_of || "—";
+        document.getElementById("asOfDateLabel").textContent =
+          (d.as_of && d.as_of !== scanDay) ? `${scanDay}（K線至 ${d.as_of.slice(5).replace("-", "/")} 收盤）` : scanDay;
         return;
       }
       const slotsMap = (appState.data && appState.data.hourly_slots) || INITIAL_DATA.hourly_slots;

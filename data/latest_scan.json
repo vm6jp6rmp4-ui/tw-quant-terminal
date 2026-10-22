@@ -55,7 +55,7 @@
   "funnel": [
     [
       "有完整日K資料",
-      1976
+      1977
     ],
     [
       "MACD 第一根紅柱",
@@ -86,7 +86,7 @@
       1
     ]
   ],
-  "scanned": 1979,
+  "scanned": 1980,
   "download_failed": 0,
   "notes": [
     "券商分點條件未套用：FinMind 分點資料需要贊助會員（Your level is free. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor）"
@@ -152,8 +152,8 @@
     }
   ],
   "foreign_unknown": [],
-  "elapsed_sec": 128.5,
-  "generated_at_tw": "2026-10-22 13:49:57",
-  "slot_id": "20261022_1349",
-  "slot_label": "13:49 收盤定稿"
+  "elapsed_sec": 54.3,
+  "generated_at_tw": "2026-10-22 18:33:51",
+  "slot_id": "20261022_1833",
+  "slot_label": "18:33 收盤定稿"
 }

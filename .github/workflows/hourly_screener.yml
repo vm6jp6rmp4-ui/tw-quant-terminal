@@ -81,7 +81,7 @@ jobs:
           git commit -m "chore(screener): update scan $(TZ=Asia/Taipei date +'%Y-%m-%d %H:%M')"
           # push 失敗時重試（例如你剛好同時在網頁上改檔案）
           for i in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
+            git pull --rebase -X theirs origin main && git push && exit 0
             sleep 5
           done
           exit 1

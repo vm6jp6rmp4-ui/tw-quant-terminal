@@ -49,10 +49,16 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Taiwan Stock Screener (All Listed & OTC Stocks)
+        id: screener
+        continue-on-error: true
         env:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
           TZ: Asia/Taipei
         run: |
+          set -o pipefail
+          mkdir -p data
+          exec > >(tee data/last_run_log.txt) 2>&1
+          echo "Run at $(date '+%Y-%m-%d %H:%M:%S') (Asia/Taipei)"
           EXTRA_ARGS="--kd-within ${{ github.event.inputs.kd_within || '1' }} --days ${{ github.event.inputs.foreign_days || '2' }}"
           if [ "${{ github.event.inputs.mode }}" = "intraday" ]; then
             python scripts/run_hourly.py --force-intraday $EXTRA_ARGS
@@ -63,6 +69,7 @@ jobs:
           fi
 
       - name: Commit and push updated screening results
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -77,4 +84,10 @@ jobs:
             git pull --rebase origin main && git push && exit 0
             sleep 5
           done
+          exit 1
+
+      - name: Fail the job if the screener failed
+        if: steps.screener.outcome == 'failure'
+        run: |
+          echo "選股程式執行失敗，錯誤訊息見 data/last_run_log.txt"
           exit 1

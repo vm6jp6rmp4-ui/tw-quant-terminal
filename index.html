@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calvin Hsu｜台股全市場 AI 量化選股雷達 × 每日精選投研日報終端</title>
+  <title>Calvin Hsu｜台股全市場 AI 量化選股雷達</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,15 +89,8 @@
       <div class="flex flex-wrap items-center gap-3 sm:gap-5 font-mono-num">
         <span class="inline-flex items-center gap-1.5 text-cyan-400 font-semibold">
           <span class="w-2 h-2 rounded-full bg-cyan-400 pulse-dot"></span>
-          TWSE / TPEX 實盤數據 (2026/10/15)
+          最後掃描：<strong id="lastScanLabel" class="text-slate-200">--</strong>
         </span>
-        <span>加權指數 <strong class="tw-down">46,969.87</strong> <span class="badge-down px-1.5 py-0.5 rounded text-[11px]">▼1,655.96 (-3.41%)</span></span>
-        <span class="hidden md:inline">總成交值 <strong class="text-slate-200">14,312.84億</strong></span>
-        <span>三大法人 <strong class="tw-down">-3,700.76億</strong></span>
-        <span class="hidden sm:inline">外資 <strong class="tw-down">-3,025.55億</strong></span>
-        <span class="hidden sm:inline">投信 <strong class="tw-up">+283.03億</strong></span>
-        <span class="hidden lg:inline">金融指 <strong class="tw-up">3,709.66 ▲26.79 (+0.73%)</strong></span>
-        <span class="hidden xl:inline">中華電(2412) <strong class="tw-up">152.50 ▲4.00 (+2.69%)</strong></span>
       </div>
       <div class="flex items-center gap-2 font-mono-num text-[11px] text-slate-400">
         <span>排程狀態：<strong id="scheduleStatusBadge" class="text-emerald-400">開盤每小時自動掃描已啟用</strong></span>
@@ -124,7 +117,7 @@
               <span class="px-2 py-0.5 text-[10px] font-mono-num rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">XQ Cloud v2.6</span>
             </div>
             <h1 class="text-base sm:text-lg font-bold text-white tracking-tight">
-              台股全市場每小時選股雷達 × 每日精選投研日報
+              台股全市場每小時選股雷達
             </h1>
           </div>
         </div>
@@ -138,9 +131,6 @@
         <nav class="flex flex-wrap items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-800" aria-label="主要功能切換">
           <button type="button" data-tab="screener" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all bg-cyan-500 text-slate-950 font-semibold shadow-sm">
             ⚡ 盤中每小時選股雷達
-          </button>
-          <button type="button" data-tab="report" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800/60">
-            📰 Calvin Hsu 投研日報
           </button>
           <button type="button" data-tab="deepdive" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800/60">
             🔬 個股技術與基本面剖析
@@ -178,7 +168,7 @@
               </span>
             </div>
             <h2 class="text-sm sm:text-base font-bold text-white mt-0.5">
-              開盤每小時全市場掃描時段切換（上市＋上櫃 1,812 檔普通股）
+              開盤每小時全市場掃描時段切換（上市＋上櫃 <span id="universeCountLabel">--</span> 檔普通股）
             </h2>
           </div>
           <div class="flex flex-wrap items-center gap-2 text-xs font-mono-num text-slate-300">
@@ -340,462 +330,7 @@
       </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- TAB 2: CALVIN HSU DAILY RESEARCH REPORT    -->
-    <!-- ========================================== -->
-    <section id="tab-report" class="hidden space-y-5">
-      <!-- Report Controls Bar -->
-      <div class="glass-panel rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-mono-num text-cyan-400 uppercase tracking-wider">// CALVIN HSU RESEARCH DAILY · 雙頁科技感投研日報</span>
-          <h2 class="text-base font-bold text-white">Calvin Hsu｜研究投資日報（2026.10.15 台股盤後解析與 10/16 盤前規劃）</h2>
-        </div>
-        <div class="flex flex-wrap items-center gap-2">
-          <button type="button" data-report-page="all" class="report-page-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500 text-slate-950">
-            雙頁完整展開
-          </button>
-          <button type="button" data-report-page="p1" class="report-page-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:text-white">
-            第 1 頁：市場總覽＆法人動向
-          </button>
-          <button type="button" data-report-page="p2" class="report-page-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:text-white">
-            第 2 頁：個股焦點＆盤前規劃
-          </button>
-        </div>
-      </div>
-
-      <!-- PAGE 1 OF RESEARCH DAILY -->
-      <div id="reportPage1" class="report-sheet rounded-2xl overflow-hidden">
-        <!-- Dark Masthead -->
-        <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800 px-6 py-5">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div class="flex items-center gap-4">
-              <div class="px-3 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-bold tracking-wider text-sm">
-                Calvin Hsu
-              </div>
-              <div>
-                <div class="text-xs font-mono-num text-slate-400 tracking-widest">RESEARCH DAILY ／ 研究投資日報</div>
-                <div class="text-xs text-cyan-400 font-semibold mt-0.5">台股｜盤前早報＆盤後深度追蹤（紅漲綠跌制）</div>
-              </div>
-            </div>
-            <div class="text-left md:text-right font-mono-num">
-              <div class="text-lg font-bold text-white">2026.10.15</div>
-              <div class="text-xs text-slate-400">PAGE 01 OF 02 // TAIWAN EQUITY</div>
-            </div>
-          </div>
-
-          <div class="mt-4 pt-4 border-t border-slate-800/90">
-            <div class="text-xs font-mono-num text-cyan-400 tracking-widest mb-1">// TAIWAN EQUITY · DAILY · THU</div>
-            <h2 class="text-xl sm:text-2xl font-black text-white leading-snug">
-              外資狂砍 3,025 億創史上最大提款，加權重挫 1,655 點退守 46,969 點，資金急轉金控與電信避風港
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1.5">
-              10/15 加權指數終場下跌 <span class="tw-down font-mono-num font-bold">1,655.96 點（-3.41%）</span> 收 <span class="font-mono-num font-bold text-white">46,969.87 點</span>，上市總成交值爆出 <span class="font-mono-num font-bold text-white">14,312.84 億元</span>；主線聚焦 <span class="tw-up font-semibold">電信三雄創高、公股民營金控護盤、SMT 光電逆勢突圍</span>。
-            </p>
-          </div>
-        </div>
-
-        <!-- Page 1 Body: Left Sidebar (DATA + RISK) & Right Main (01 MARKET + 02 FUND FLOW + 03 INSTITUTIONAL FLOW) -->
-        <div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <!-- Left Column (4 cols): DATA & RISK -->
-          <div class="lg:col-span-4 space-y-5">
-            <!-- DATA Card -->
-            <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-800">
-              <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
-                <span class="text-xs font-mono-num font-bold text-cyan-400">DATA｜市場數據卡</span>
-                <span class="text-[11px] font-mono-num text-slate-400">2026/10/15 收盤</span>
-              </div>
-              <div class="space-y-2.5 text-xs font-mono-num">
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">加權指數收盤</span>
-                  <span class="text-white font-bold">46,969.87</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">單日漲跌 / 幅度</span>
-                  <span class="tw-down font-bold">▼ 1,655.96 (-3.41%)</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">盤中最低 / 前日收盤</span>
-                  <span class="text-slate-200">46,795.38 / 48,625.83</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">總成交金額 (含鉅額)</span>
-                  <span class="text-amber-300 font-bold">14,312.84 億元</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">櫃買指數 (OTC)</span>
-                  <span class="tw-down font-bold">396.90 (-5.53%)</span>
-                </div>
-                <div class="pt-2 border-t border-slate-800/80 flex justify-between items-center">
-                  <span class="text-slate-400">外資及陸資</span>
-                  <span class="tw-down font-bold">-3,025.55 億元 (連7賣)</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">投信法人</span>
-                  <span class="tw-up font-bold">+283.03 億元</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">自營商合計 (自行/避險)</span>
-                  <span class="tw-down font-bold">-958.24 億 (-86.8/-871.4)</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">三大法人合計</span>
-                  <span class="tw-down font-bold">-3,700.76 億元</span>
-                </div>
-                <div class="pt-2 border-t border-slate-800/80 flex justify-between items-center">
-                  <span class="text-slate-400">外資期貨未平倉多空比</span>
-                  <span class="text-cyan-300 font-bold">8.59%</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">散戶小台多空比</span>
-                  <span class="text-amber-300 font-bold">33.78%</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-slate-400">關鍵支撐 / 壓力價位</span>
-                  <span class="text-slate-200">46,795 / 48,341 點</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- RISK Card -->
-            <div class="bg-slate-900/90 rounded-xl p-4 border border-rose-500/30">
-              <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
-                <span class="text-xs font-mono-num font-bold text-rose-400">RISK｜盤面三大隱憂</span>
-                <span class="text-[11px] font-mono-num text-rose-300">HIGH ALERT</span>
-              </div>
-              <div class="space-y-3 text-xs leading-relaxed text-slate-300">
-                <div>
-                  <div class="font-bold text-white mb-0.5">1. 外資單日提款 3,025.55 億元刷新歷史紀錄</div>
-                  <p>外資連續 7 個交易日賣超台股，10/15 單日狂砍 3,025.55 億元創下台股史上最大單日賣超紀錄，並帶動新台幣匯率盤中重貶逾 3 角，權值股成為首要提款對象。</p>
-                </div>
-                <div>
-                  <div class="font-bold text-white mb-0.5">2. 櫃買指數暴跌 5.53% 引發中小型股多殺多</div>
-                  <p>上櫃指數終場重挫 23.23 點收在 396.90 點，跌幅 5.53% 明顯重於加權指數的 3.41%，顯示內資中小型高融資個股面臨停損與斷頭調節壓力，散戶小台多空比仍高達 33.78%。</p>
-                </div>
-                <div>
-                  <div class="font-bold text-white mb-0.5">3. 電子權值與塑化集團同步破線承壓</div>
-                  <p>除了聯發科（2454）下跌 6.93%、台達電（2308）重挫 8.68%、緯創（3231）下跌 5.88% 外，傳產塑化集團南亞（1303 -9.89%）、台化（1326 -9.94%）、國喬（1312 -9.79%）亦遭外資大舉調節。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column (8 cols): 01 MARKET, 02 FUND FLOW, 03 INSTITUTIONAL FLOW -->
-          <div class="lg:col-span-8 space-y-5">
-            <!-- 01 MARKET -->
-            <div class="bg-slate-900/75 rounded-xl p-4 border border-slate-800">
-              <div class="text-xs font-mono-num font-bold text-cyan-400 mb-2">01 MARKET｜市場總覽</div>
-              <div class="space-y-2.5 text-xs sm:text-sm leading-relaxed text-slate-200">
-                <p>
-                  受美股科技股回檔與費城半導體指數下挫衝擊，台股 10/15 開低走低，盤中一度狂瀉逾 1,800 點下探 46,795.38 點，接連失守 48,000 點與 47,000 點兩道整數大關，終場下跌 1,655.96 點（跌幅 3.41%），收在 46,969.87 點，總成交值放大至 14,312.84 億元（不含鉅額交易之上市成交金額為 13,197.70 億元）。權值股全面承壓，台積電（2330）開盤 2,420 元、最高 2,450 元，終場下跌 50 元（-2.01%）收在 2,440 元，全日成交 5.82 萬張，但最後一盤湧入 5,833 張低接買單；聯發科（2454）重挫 310 元收 4,165 元（-6.93%），台達電（2308）大跌 155 元收 1,630 元（-8.68%），鴻海（2317）下跌 3.5 元收 239.5 元（-1.44%）。籌碼面上，三大法人合計賣超 3,700.76 億元，其中外資賣超 3,025.55 億元、自營商賣超 958.24 億元，僅投信逆勢買超 283.03 億元。
-                </p>
-                <p>
-                  類股結構呈現「電子與中小型股重挫、金控與電信逆勢撐盤」的極端分歧。電子類股指數下跌 117.02 點（-3.84%）收 2,933.03 點，櫃買指數更重挫 5.53% 收 396.90 點；反觀金融類股指數逆勢上漲 26.79 點（+0.73%）收在 3,709.66 點。技術面觀察，加權指數自前日收盤 48,625.83 點帶量長黑跌破短期 5 日與 10 日均線並失守月線關卡，短線需觀察 46,795 點盤中低點與台積電法說會後能否出現止跌縮量訊號。
-                </p>
-              </div>
-            </div>
-
-            <!-- 02 FUND FLOW -->
-            <div class="bg-slate-900/75 rounded-xl p-4 border border-slate-800">
-              <div class="text-xs font-mono-num font-bold text-cyan-400 mb-2">02 FUND FLOW｜資金動向</div>
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                面對外資單日逾三千億元的歷史級調節，場內避險資金與投信買盤迅速向具備高殖利率、穩定內需現金流及低本益比特性的防禦族群靠攏，形成三大抗跌主線：
-              </p>
-              <div class="space-y-2 text-xs sm:text-sm leading-relaxed text-slate-200">
-                <p>
-                  <strong class="text-rose-400">● 電信防禦龍頭主線：</strong>中華電（2412）盤中衝上 154.00 元刷新歷史天價，終場收 152.50 元（+2.69%），外資單日大買 14,589 張（連 11 買）；遠傳（4904）盤中強漲 4.63% 報 113 元、台灣大（3045）勁揚 4.35% 報 132 元，電信三雄受惠前 9 月穩定獲利成為資金避風港。
-                </p>
-                <p>
-                  <strong class="text-rose-400">● 大型金控外資鎖碼主線：</strong>三大法人買超前十名中金控佔據 6 檔，兆豐金（2886）上漲 2.74% 收 52.50 元，獲三大法人狂敲 33,752 張居冠；永豐金（2890）大漲 3.52% 收 45.60 元、玉山金（2884）上漲 3.17% 收 48.80 元、中信金（2891）上漲 2.10% 收 72.90 元、合庫金（5880）上漲 1.29% 收 27.50 元。
-                </p>
-                <p>
-                  <strong class="text-rose-400">● 內需食品與利基光電突圍主線：</strong>統一（1216）逆勢上漲 1.66% 收 79.50 元，獲外資買超 26,401 張奪下外資買超張數榜首；電子股中僅少數籌碼集中標的突圍，台表科（6278）大漲 4.48% 收 303.00 元（投信買超 4,938 張）、今國光（6209）上漲 3.56% 收 93.00 元（外資轉買 11,620 張）。
-                </p>
-              </div>
-              <div class="mt-3 pt-2.5 border-t border-slate-800 flex flex-wrap gap-1.5">
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">2412 中華電</span>
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">2886 兆豐金</span>
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">1216 統一</span>
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">5880 合庫金</span>
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">2890 永豐金</span>
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">2884 玉山金</span>
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">6278 台表科</span>
-                <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 text-xs font-mono-num">6209 今國光</span>
-              </div>
-            </div>
-
-            <!-- 03 INSTITUTIONAL & ETF FLOW TABLE -->
-            <div class="bg-slate-900/75 rounded-xl p-4 border border-slate-800">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
-                <span class="text-xs font-mono-num font-bold text-cyan-400">03 INSTITUTIONAL & ETF FLOW｜三大法人與主動買盤前十強動向</span>
-                <span class="text-[11px] font-mono-num text-slate-400">資料日期：2026/10/15（紅買綠賣，單位：張／億元）</span>
-              </div>
-              <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse text-xs font-mono-num">
-                  <thead>
-                    <tr class="border-b border-slate-800 text-slate-400">
-                      <th class="py-2 pr-2">個股</th>
-                      <th class="py-2 px-2 text-center">法人同步買進</th>
-                      <th class="py-2 px-2 w-44">推估買進金額 (億元)</th>
-                      <th class="py-2 px-2 text-right">外資(張)</th>
-                      <th class="py-2 px-2 text-right">投信(張)</th>
-                      <th class="py-2 px-2 text-right">自營商(張)</th>
-                      <th class="py-2 pl-2 text-right">三大合計(張)</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-slate-800/60">
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">統一 (1216)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">3大法人同買</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-400 to-rose-500" style="width: 100%"></div>
-                          </div>
-                          <span class="text-rose-300 font-bold">25.73</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right tw-up">+26,401</td>
-                      <td class="py-2 px-2 text-right tw-up">+3,120</td>
-                      <td class="py-2 px-2 text-right tw-up">+2,839</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+32,360</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">中華電 (2412)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">外資連11買</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-400 to-rose-500" style="width: 93%"></div>
-                          </div>
-                          <span class="text-rose-300 font-bold">23.96</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right tw-up">+14,589</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+15,708</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">兆豐金 (2886)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">外資+投信同買</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-400 to-rose-500" style="width: 69%"></div>
-                          </div>
-                          <span class="text-rose-300 font-bold">17.72</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right tw-up">+21,614</td>
-                      <td class="py-2 px-2 text-right tw-up">+3,954</td>
-                      <td class="py-2 px-2 text-right tw-up">+8,184</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+33,752</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">台表科 (6278)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">投信重倉</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-slate-400" style="width: 58%"></div>
-                          </div>
-                          <span class="text-slate-200 font-bold">14.96</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 px-2 text-right tw-up">+4,938</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+4,938</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">中信金 (2891)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">法人轉買</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-400 to-rose-500" style="width: 48%"></div>
-                          </div>
-                          <span class="text-rose-300 font-bold">12.27</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+16,826</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">玉山金 (2884)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">外資+投信同買</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-400 to-rose-500" style="width: 44%"></div>
-                          </div>
-                          <span class="text-rose-300 font-bold">11.43</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 px-2 text-right tw-up">+5,735</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+23,418</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">永豐金 (2890)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">外資+自營同買</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-400 to-rose-500" style="width: 43%"></div>
-                          </div>
-                          <span class="text-rose-300 font-bold">11.23</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right tw-up">+17,567</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+24,624</td>
-                    </tr>
-                    <tr>
-                      <td class="py-2 pr-2 font-bold text-white">合庫金 (5880)</td>
-                      <td class="py-2 px-2 text-center"><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">外資連6買</span></td>
-                      <td class="py-2 px-2">
-                        <div class="flex items-center gap-2">
-                          <div class="w-24 bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-400 to-rose-500" style="width: 32%"></div>
-                          </div>
-                          <span class="text-rose-300 font-bold">8.16</span>
-                        </div>
-                      </td>
-                      <td class="py-2 px-2 text-right tw-up">+24,774</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 px-2 text-right text-slate-400">—</td>
-                      <td class="py-2 pl-2 text-right tw-up font-bold">+29,688</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="mt-3 text-xs text-slate-400 leading-relaxed">
-                <strong>圖一說明：</strong>10/15 三大法人買超金額集中於統一（25.73 億元）、中華電（23.96 億元）與兆豐金（17.72 億元），其中兆豐金、玉山金獲外資與投信同步加碼，展現法人在指數修正期間一致的防禦配置共識（未進入單項前十名之細項依規範標示為「—」）。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PAGE 2 OF RESEARCH DAILY -->
-      <div id="reportPage2" class="report-sheet rounded-2xl overflow-hidden">
-        <div class="bg-slate-950/90 border-b border-slate-800 px-6 py-3 flex items-center justify-between text-xs font-mono-num text-slate-400">
-          <span>Calvin Hsu // RESEARCH DAILY · 研究投資日報</span>
-          <span>2026.10.15 · PAGE 02 OF 02</span>
-        </div>
-
-        <div class="p-6 space-y-6">
-          <!-- 04 STOCK FOCUS -->
-          <div class="bg-slate-900/80 rounded-xl p-5 border border-slate-800">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-4 border-b border-slate-800">
-              <div>
-                <span class="text-xs font-mono-num font-bold text-cyan-400">04 STOCK FOCUS｜個股焦點</span>
-                <h3 class="text-lg font-bold text-white mt-0.5">
-                  中華電（2412）｜大盤暴跌 1,655 點中逆勢衝上 154 元歷史新高，外資連 11 日買超鎖碼 4.77 萬張
-                </h3>
-              </div>
-              <span class="px-2.5 py-1 rounded-lg badge-up font-mono-num text-xs font-bold">
-                收盤 152.50 元 (▲4.00 / +2.69%)
-              </span>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-              <!-- Left 5 boxes -->
-              <div class="lg:col-span-5 grid grid-cols-1 gap-2.5 text-xs">
-                <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90">
-                  <div class="text-cyan-400 font-mono-num font-bold mb-0.5">01 / 今日表現</div>
-                  <p class="text-slate-200">10/15 盤中最高攻抵 154.00 元刷新掛牌歷史新高，終場收 152.50 元（+2.69%），成交量放大至 2.46 萬張。</p>
-                </div>
-                <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90">
-                  <div class="text-cyan-400 font-mono-num font-bold mb-0.5">02 / 營運與獲利重點</div>
-                  <p class="text-slate-200">9 月自結稅後淨利 44.4 億元，單月 EPS 0.57 元與 8 月持平，連續兩個月奪下電信三雄單月獲利王，累計前三季 EPS 達 4.25 元。</p>
-                </div>
-                <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90">
-                  <div class="text-cyan-400 font-mono-num font-bold mb-0.5">03 / 成長與防禦題材</div>
-                  <p class="text-slate-200">5G 滲透率持續提升與企業資通訊（ICT）、IDC 雲端機房業務穩健增長，不受美股半導體評價修正直接衝擊。</p>
-                </div>
-                <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90">
-                  <div class="text-cyan-400 font-mono-num font-bold mb-0.5">04 / 法人籌碼動向</div>
-                  <p class="text-slate-200">外資 10/15 單日買超 14,589 張（估 22.25 億元，居外資買超金額第 1 名），連續 11 個交易日買超累計達 47,751 張（估 70.71 億元）。</p>
-                </div>
-                <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90">
-                  <div class="text-cyan-400 font-mono-num font-bold mb-0.5">05 / 關鍵價位</div>
-                  <p class="text-slate-200 font-mono-num">前高壓力：154.00 元 ｜ 短期支撐：148.50 元 ｜ 50MA 中線：141.80 元</p>
-                </div>
-              </div>
-
-              <!-- Right 4 subsections -->
-              <div class="lg:col-span-7 space-y-3 text-xs sm:text-sm leading-relaxed text-slate-200">
-                <div class="p-3.5 rounded-lg bg-slate-950/50 border border-slate-800/70">
-                  <div class="font-bold text-white mb-1">■ 技術面剖析</div>
-                  <p>股價穩居 50 日布林中線之上，10/15 帶量突破前波整理平台並創下 154 元歷史新高，MACD 柱狀體（OSC）由負轉正出現第一根紅柱且 DIF 位於零軸之上，KD 指標維持高檔強勢金叉結構。</p>
-                </div>
-                <div class="p-3.5 rounded-lg bg-slate-950/50 border border-slate-800/70">
-                  <div class="font-bold text-white mb-1">■ 營運現況</div>
-                  <p>中華電信受惠於個人家庭 5G 月租型用戶升速與企業客戶資安、雲端專案入帳，單月獲利維持高檔，前三季累計 EPS 4.25 元展現高度抗景氣波動能力。</p>
-                </div>
-                <div class="p-3.5 rounded-lg bg-slate-950/50 border border-slate-800/70">
-                  <div class="font-bold text-white mb-1">■ 成長動能與籌碼優勢</div>
-                  <p>在外資單日大砍台股逾 3,025 億元的極端環境下，外資與三大法人反而對中華電信單日淨買超 15,708 張（約 23.96 億元），帶動遠傳（4904）、台灣大（3045）同步大漲逾 4%，形成明確的避險資金群聚效應。</p>
-                </div>
-                <div class="p-3.5 rounded-lg bg-slate-950/50 border border-slate-800/70">
-                  <div class="font-bold text-white mb-1">■ 中長期布局與風險提示</div>
-                  <p>工會於 10/14 針對加薪、退休保障與團體協約議題啟動罷工投票程序，公司則發函釐清選務與工作場所安全規範，後續需關注勞資協商進度及外資連買動能是否延續。</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 px-4 py-2.5 rounded-lg bg-cyan-950/40 border border-cyan-500/30 text-xs text-cyan-200">
-              <strong>觀察重點：</strong>追蹤外資連續買超（目前已連 11 買）是否延續，以及股價回測 148.5～150 元整數關卡時的量縮支撐力道。
-            </div>
-          </div>
-
-          <!-- 05 OUTLOOK -->
-          <div class="bg-slate-900/80 rounded-xl p-5 border border-slate-800 space-y-3">
-            <div class="text-xs font-mono-num font-bold text-cyan-400">05 OUTLOOK｜10/16 盤前規劃｜聚焦台積電法說展望與外資賣壓收斂訊號，優先鎖定法人連買低波動防禦主線</div>
-            <p class="text-xs sm:text-sm leading-relaxed text-slate-200">
-              產業與總經焦點方面，台積電（2330）第三季法說會成為全市場多空分水嶺。儘管 10/15 台積電受美股科技股重挫拖累下跌 50 元收 2,440 元，且遭外資單日調節 34,111 張（約 832.32 億元），但投信逆勢買超 3,222 張（連 12 買），且收盤最後一盤湧入 5,833 張買單進場承接，顯示長線內外資法人在法說會前夕對 AI 晶圓代工與先進封裝基本面仍具底線共識。此外，高階 PCB 與 SMT 打件族群如台表科（6278）獲投信逆勢大買 14.96 億元，為電子股中少數維持多頭排列之次產業。
-            </p>
-            <p class="text-xs sm:text-sm leading-relaxed text-slate-200">
-              盤勢與操作規劃上，10/15 加權指數爆出 1.43 兆元巨量長黑跌破 47,000 點，外資期貨未平倉多空比僅 8.59%，而散戶小台多空比仍達 33.78%，顯示籌碼面尚未完全沉澱。短線操作不宜過早重押跌深破線之中小型電子股，建議優先透過本系統之「開盤每小時 XQ 選股雷達」追蹤收盤站穩 50MA 布林中線、MACD 翻紅且獲外資與投信連續買超鎖碼之金控（兆豐金、合庫金、玉山金、永豐金）、電信（中華電）與內需龍頭（統一）。
-            </p>
-            <div class="pt-2 flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-xs font-mono-num">#2330 台積電</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-xs font-mono-num">#2412 中華電</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-xs font-mono-num">#2886 兆豐金</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-xs font-mono-num">#1216 統一</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-xs font-mono-num">#5880 合庫金</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-xs font-mono-num">#6278 台表科</span>
-            </div>
-          </div>
-
-          <!-- Footer Disclaimer & Verified Links -->
-          <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-400 space-y-1.5">
-            <p>
-              <strong>研究員聲明與免責聲明：</strong>本報告由 Calvin Hsu 團隊依據公開市場資訊與量化選股模型整理，僅供研究參考，不構成任何有價證券之買賣要約或投資建議。投資人應獨立判斷並自負投資風險。
-            </p>
-            <p class="flex flex-wrap items-center gap-2">
-              <span><strong>資料來源：</strong>臺灣證券交易所（TWSE）、櫃買中心（TPEX）、FinMind、Yahoo Finance（均線與推估買進金額為模型自行計算）。驗證新聞來源：</span>
-              <a href="https://wantrich.chinatimes.com/news/20261015900375-420101" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">旺得富：外資15日買超前十</a>
-              <span>·</span>
-              <a href="https://wantrich.chinatimes.com/news/20261015900379-420101" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">旺得富：三大法人15日買超前十</a>
-              <span>·</span>
-              <a href="https://www.ftnn.com.tw/news/587521" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">FTNN：台股10/15盤後快訊</a>
-              <span>·</span>
-              <a href="https://www.capitalfutures.com.tw/zh-tw/Financial/GlobalArticle?ContentId=C26101500792&Category=index" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">群益期貨：10/15盤後籌碼</a>
-            </p>
-            <div class="text-right font-mono-num text-slate-500">
-              報告日期：2026 年 10 月 15 日 © 2026 Calvin Hsu 報告研究
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- ========================================== -->
     <!-- TAB 3: INTERACTIVE STOCK DEEP-DIVE STUDIO  -->
@@ -893,7 +428,7 @@
   <!-- Footer -->
   <footer class="border-t border-slate-800/80 bg-slate-950/90 py-4 px-4 text-center text-xs text-slate-500 mt-8">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <span>Calvin Hsu｜台股全市場 AI 量化選股雷達 × 每日精選投研日報終端（紅漲綠跌制）</span>
+      <span>Calvin Hsu｜台股全市場 AI 量化選股雷達（紅漲綠跌制）</span>
       <span>本網站內容為依公開資訊與自訂量化條件篩選之整理，不構成投資建議，進場前請自行判斷。</span>
     </div>
   </footer>
@@ -2732,26 +2267,60 @@
       document.body.removeChild(ta);
     }
 
-    // Try loading live ./data/latest_scan.json when hosted on GitHub Pages
+    // Load ./data/latest_scan.json and ./data/hourly_index.json (updated by GitHub Actions)
+    async function fetchJson(path) {
+      const resp = await fetch(path + "?t=" + Date.now(), { cache: "no-store" });
+      if (!resp.ok) throw new Error(path + " HTTP " + resp.status);
+      return resp.json();
+    }
+
+    function slotTime(run) {
+      return (run.slot_label || "").split(" ")[0] || (run.slot_id || "").slice(-4).replace(/(\d\d)(\d\d)/, "$1:$2");
+    }
+
     async function tryFetchLiveJson(showFeedback = false) {
       try {
-        const apiEndpoint = ["data", "latest_scan.json"].join("/") + "?t=" + Date.now();
-        const resp = await fetch(apiEndpoint);
-        if (resp.ok) {
-          const liveJson = await resp.json();
-          if (liveJson && Array.isArray(liveJson.matches)) {
-            appState.data = Object.assign({}, INITIAL_DATA, liveJson);
-            renderAll();
-            if (showFeedback) showToast("已同步伺服器最新選股結果 (" + (liveJson.as_of || "最新") + ")");
-            return;
-          }
+        const latest = await fetchJson("data/latest_scan.json");
+        if (!latest || !Array.isArray(latest.matches)) throw new Error("bad latest_scan.json");
+        let runs = [];
+        try {
+          const idx = await fetchJson("data/hourly_index.json");
+          runs = (idx.runs || []).filter(r => r.file && r.slot_id);
+        } catch (e) { /* index optional */ }
+        // 只顯示最新一次掃描那一天的時段
+        const day = (latest.slot_id || "").slice(0, 8);
+        runs = runs.filter(r => r.slot_id.slice(0, 8) === day).reverse();
+        if (!runs.length && latest.slot_id) {
+          runs = [{ slot_id: latest.slot_id, slot_label: latest.slot_label, intraday: latest.intraday, file: "data/latest_scan.json" }];
         }
+        appState.live = true;
+        appState.runs = runs;
+        appState.data = latest;
+        appState.currentSlot = latest.slot_id || "";
+        renderAll();
+        if (showFeedback) showToast("已同步最新選股結果（資料基準日 " + (latest.as_of || "—") + "）");
       } catch (e) {
-        // Running inside sandboxed Canvas or offline mode
+        if (showFeedback) showToast("讀取最新資料失敗：" + e.message);
       }
-      if (showFeedback) {
-        showToast("目前已是最新 2026-10-15 實盤整合快照數據");
+    }
+
+    async function loadRun(slotId) {
+      const run = (appState.runs || []).find(r => r.slot_id === slotId);
+      if (!run) return;
+      try {
+        const data = await fetchJson(run.file);
+        appState.data = data;
+        appState.currentSlot = slotId;
+        renderAll();
+      } catch (e) {
+        showToast("讀取該時段資料失敗：" + e.message);
       }
+    }
+
+    function scanNote(d) {
+      const mode = d.intraday ? "盤中快篩（--intraday，用當下成交價合成今日K棒；外資用到前一交易日）" : "收盤模式（使用最新已公布收盤資料）";
+      const notes = Array.isArray(d.notes) ? d.notes.join("；") : (d.notes || "");
+      return `${mode}。掃描 ${Number(d.scanned || 0).toLocaleString()} 檔，產生時間 ${d.generated_at_tw || "—"}。${notes}`;
     }
 
     function getFilteredMatches() {
@@ -2794,6 +2363,37 @@
     function renderHourlySlots() {
       const container = document.getElementById("hourlySlotsContainer");
       if (!container) return;
+      const d = appState.data || {};
+      const uc = document.getElementById("universeCountLabel");
+      if (uc) uc.textContent = Number(d.scanned || 0).toLocaleString();
+      const ls = document.getElementById("lastScanLabel");
+      if (ls) ls.textContent = d.generated_at_tw || "--";
+      if (appState.live) {
+        container.innerHTML = (appState.runs || []).map(r => {
+          const active = appState.currentSlot === r.slot_id;
+          const t = slotTime(r);
+          return `
+          <button type="button" data-slot="${r.slot_id}" class="slot-btn text-left p-2.5 rounded-xl border transition-all ${
+            active
+              ? "bg-cyan-500/20 border-cyan-400 text-white shadow-md shadow-cyan-950/50"
+              : "bg-slate-900/75 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900"
+          }">
+            <div class="flex items-center justify-between text-[11px] font-mono-num">
+              <span class="${active ? "text-cyan-300 font-bold" : "text-slate-400"}">${t}</span>
+              <span class="px-1.5 py-0.2 rounded text-[10px] ${r.intraday ? "bg-amber-500/20 text-amber-300" : "bg-emerald-500/20 text-emerald-300"}">${r.intraday ? "盤中" : "收盤"}</span>
+            </div>
+            <div class="text-xs font-bold mt-1 truncate">${r.match_count !== undefined ? r.match_count + " 檔符合" : (r.slot_label || "").replace(t + " ", "")}</div>
+          </button>`;
+        }).join("") || `<div class="col-span-full text-xs text-slate-400">今天尚無掃描紀錄</div>`;
+        container.querySelectorAll(".slot-btn").forEach(btn => {
+          btn.addEventListener("click", () => loadRun(btn.getAttribute("data-slot")));
+        });
+        document.getElementById("currentSlotModeTag").textContent = d.intraday ? "盤中即時快篩 (--intraday)" : "收盤模式";
+        document.getElementById("elapsedSecLabel").textContent = (d.elapsed_sec || 0) + " 秒";
+        document.getElementById("slotNoteText").textContent = scanNote(d);
+        document.getElementById("asOfDateLabel").textContent = d.as_of || "—";
+        return;
+      }
       const slotsMap = (appState.data && appState.data.hourly_slots) || INITIAL_DATA.hourly_slots;
       const keys = Object.keys(slotsMap);
       container.innerHTML = keys.map(k => {
@@ -2835,7 +2435,7 @@
       const container = document.getElementById("funnelBarsContainer");
       if (!container) return;
       const slotsMap = (appState.data && appState.data.hourly_slots) || INITIAL_DATA.hourly_slots;
-      const slotObj = slotsMap[appState.currentSlot];
+      const slotObj = appState.live ? null : slotsMap[appState.currentSlot];
       const funnel = (slotObj && slotObj.funnel) || appState.data.funnel || [];
       const maxCount = funnel.length ? funnel[0][1] : 1812;
       const finalCount = funnel.length ? funnel[funnel.length - 1][1] : 0;
@@ -2912,9 +2512,9 @@
             </td>
             <td class="py-3 px-2.5 text-right">
               <div class="font-bold ${priceClass}">${Number(r.close).toFixed(2)}</div>
-              <span class="inline-block px-1.5 py-0.5 rounded text-[10px] ${badgeClass}">
+              ${r.change === undefined ? `<span class="text-[10px] text-slate-500">—</span>` : `<span class="inline-block px-1.5 py-0.5 rounded text-[10px] ${badgeClass}">
                 ${sign}${Math.abs(chg).toFixed(2)} (${chgPct >= 0 ? "+" : ""}${Number(chgPct).toFixed(2)}%)
-              </span>
+              </span>`}
             </td>
             <td class="py-3 px-2.5 text-right text-slate-200 font-semibold">
               ${Number(r.volume_lots || 0).toLocaleString()}
@@ -3126,7 +2726,7 @@
       `;
 
       // Render Deep Dive Charts
-      const dates = ["T-7", "T-6", "T-5", "T-4", "T-3", "T-2", "T-1", "10/15(今)"];
+      const dates = ["T-7", "T-6", "T-5", "T-4", "T-3", "T-2", "T-1", (appState.data.as_of || "").slice(5).replace("-", "/") + "(今)"];
       const pSeries = stock.price_series || [stock.bb_mid * 0.96, stock.bb_mid * 0.97, stock.bb_mid * 0.98, stock.bb_mid * 0.99, stock.bb_mid, stock.bb_mid * 1.01, stock.bb_mid * 1.02, stock.close];
       const mSeries = stock.ma50_series || Array(8).fill(stock.bb_mid);
       const oscSeries = stock.osc_series || [-0.15, -0.12, -0.08, -0.05, -0.03, -0.02, -0.01, stock.osc];
@@ -3309,7 +2909,7 @@
 
     function switchTab(tabId) {
       appState.activeTab = tabId;
-      ["screener", "report", "deepdive"].forEach(id => {
+      ["screener", "deepdive"].forEach(id => {
         const sec = document.getElementById("tab-" + id);
         if (sec) {
           sec.classList.toggle("hidden", id !== tabId);
@@ -3403,21 +3003,6 @@
       document.querySelectorAll(".nav-tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
           switchTab(btn.getAttribute("data-tab"));
-        });
-      });
-
-      // Report page switcher
-      document.querySelectorAll(".report-page-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const mode = btn.getAttribute("data-report-page");
-          document.getElementById("reportPage1").classList.toggle("hidden", mode === "p2");
-          document.getElementById("reportPage2").classList.toggle("hidden", mode === "p1");
-          document.querySelectorAll(".report-page-btn").forEach(b => {
-            const active = b.getAttribute("data-report-page") === mode;
-            b.className = "report-page-btn px-3 py-1.5 rounded-lg text-xs " + (
-              active ? "font-semibold bg-cyan-500 text-slate-950" : "font-medium bg-slate-800 text-slate-300 hover:text-white"
-            );
-          });
         });
       });
 

@@ -1,6 +1,17 @@
 {
-  "updated_at_tw": "2026-10-23 13:49:08",
+  "updated_at_tw": "2026-10-23 18:27:22",
   "runs": [
+    {
+      "slot_id": "20261023_1827",
+      "slot_label": "18:27 收盤定稿",
+      "generated_at_tw": "2026-10-23 18:27:22",
+      "as_of": "2026-10-22",
+      "intraday": false,
+      "scanned": 1980,
+      "match_count": 4,
+      "elapsed_sec": 75.3,
+      "file": "data/history/scan_20261023_1827.json"
+    },
     {
       "slot_id": "20261023_1349",
       "slot_label": "13:49 收盤定稿",

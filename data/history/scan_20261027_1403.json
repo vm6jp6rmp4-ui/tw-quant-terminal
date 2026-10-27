@@ -1,0 +1,333 @@
+{
+  "as_of": "2026-10-22",
+  "intraday": false,
+  "foreign_dates": [
+    "2026-10-21",
+    "2026-10-22"
+  ],
+  "broker_dates": [
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22"
+  ],
+  "conc_dates": [
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22"
+  ],
+  "params": {
+    "fast": 12,
+    "slow": 26,
+    "signal": 9,
+    "kd_len": 26,
+    "k_smooth": 3,
+    "d_smooth": 3,
+    "kd_within": 1,
+    "bb_len": 50,
+    "days": 2,
+    "min_lots": 0,
+    "workers": 8,
+    "broker_days": 3,
+    "conc_days": 20,
+    "conc_min": 5,
+    "conc_short_days": 5,
+    "conc_short_min": 10,
+    "json": true,
+    "intraday": false
+  },
+  "funnel": [
+    [
+      "有完整日K資料",
+      1977
+    ],
+    [
+      "MACD 第一根紅柱",
+      44
+    ],
+    [
+      "DIF > 0",
+      25
+    ],
+    [
+      "KD 黃金交叉（最近 1 天內）",
+      11
+    ],
+    [
+      "收盤在布林中線（50MA）之上",
+      11
+    ],
+    [
+      "外資連續 2 天買超",
+      4
+    ],
+    [
+      "券商分點：近 3 日買超家數 < 賣超家數（未套用：無權限）",
+      4
+    ],
+    [
+      "籌碼集中度：近 20 日 ≥ 5%，近 5 日 > 10%（未套用：無權限）",
+      4
+    ]
+  ],
+  "scanned": 1980,
+  "download_failed": 0,
+  "notes": [
+    "券商分點條件未套用：FinMind 分點資料需要贊助會員（Your level is free. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor）"
+  ],
+  "matches": [
+    {
+      "code": "9933",
+      "name": "中鼎",
+      "market": "上市",
+      "yahoo": "9933.TW",
+      "close": 44.65,
+      "quote_time": null,
+      "day_high": 45.35,
+      "day_low": 43.9,
+      "volume_lots": 8153,
+      "dif": 0.655,
+      "macd": 0.654,
+      "osc": 0.0,
+      "k": 44.36,
+      "d": 43.05,
+      "bb_mid": 41.64,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        1156,
+        3910
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 8356732,
+            "yoy_pct": 4.3
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 6996004,
+            "yoy_pct": 5.2
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 6501128,
+            "yoy_pct": -0.7
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 1.7
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 1.0
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 2.14
+          }
+        ]
+      }
+    },
+    {
+      "code": "1735",
+      "name": "日勝化",
+      "market": "上市",
+      "yahoo": "1735.TW",
+      "close": 23.3,
+      "quote_time": null,
+      "day_high": 25.2,
+      "day_low": 23.3,
+      "volume_lots": 1980,
+      "dif": 0.47,
+      "macd": 0.445,
+      "osc": 0.025,
+      "k": 57.91,
+      "d": 54.34,
+      "bb_mid": 20.93,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        83,
+        25
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 197956,
+            "yoy_pct": -0.2
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 216074,
+            "yoy_pct": 20.2
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 213751,
+            "yoy_pct": 18.0
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 0.19
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.2
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 0.58
+          }
+        ]
+      }
+    },
+    {
+      "code": "6506",
+      "name": "雙邦",
+      "market": "上櫃",
+      "yahoo": "6506.TWO",
+      "close": 19.3,
+      "quote_time": null,
+      "day_high": 19.45,
+      "day_low": 18.85,
+      "volume_lots": 248,
+      "dif": 0.215,
+      "macd": 0.21,
+      "osc": 0.005,
+      "k": 81.08,
+      "d": 78.08,
+      "bb_mid": 18.14,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        9,
+        19
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 167233,
+            "yoy_pct": 12.2
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 165214,
+            "yoy_pct": 13.1
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 170491,
+            "yoy_pct": 17.8
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 0.42
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.52
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "code": "7704",
+      "name": "明遠精密",
+      "market": "上櫃",
+      "yahoo": "7704.TWO",
+      "close": 66.8,
+      "quote_time": null,
+      "day_high": 66.8,
+      "day_low": 60.0,
+      "volume_lots": 581,
+      "dif": 0.147,
+      "macd": -0.057,
+      "osc": 0.204,
+      "k": 54.64,
+      "d": 40.5,
+      "bb_mid": 61.81,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        75,
+        32
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 66042,
+            "yoy_pct": 26.8
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 62543,
+            "yoy_pct": 13.8
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 60912,
+            "yoy_pct": 17.0
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 1.24
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.7
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 0.72
+          }
+        ]
+      }
+    }
+  ],
+  "foreign_unknown": [],
+  "elapsed_sec": 68.4,
+  "generated_at_tw": "2026-10-27 14:03:12",
+  "slot_id": "20261027_1403",
+  "slot_label": "14:03 收盤定稿"
+}

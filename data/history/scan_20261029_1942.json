@@ -1,0 +1,391 @@
+{
+  "as_of": "2026-10-28",
+  "intraday": false,
+  "foreign_dates": [
+    "2026-10-27",
+    "2026-10-28"
+  ],
+  "broker_dates": [
+    "2026-10-23",
+    "2026-10-27",
+    "2026-10-28"
+  ],
+  "conc_dates": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-27",
+    "2026-10-28"
+  ],
+  "params": {
+    "fast": 12,
+    "slow": 26,
+    "signal": 9,
+    "kd_len": 26,
+    "k_smooth": 3,
+    "d_smooth": 3,
+    "kd_within": 1,
+    "bb_len": 50,
+    "days": 2,
+    "min_lots": 0,
+    "workers": 8,
+    "broker_days": 3,
+    "conc_days": 20,
+    "conc_min": 5,
+    "conc_short_days": 5,
+    "conc_short_min": 10,
+    "json": true,
+    "intraday": false
+  },
+  "funnel": [
+    [
+      "有完整日K資料",
+      1979
+    ],
+    [
+      "MACD 第一根紅柱",
+      104
+    ],
+    [
+      "DIF > 0",
+      24
+    ],
+    [
+      "KD 黃金交叉（最近 1 天內）",
+      7
+    ],
+    [
+      "收盤在布林中線（50MA）之上",
+      7
+    ],
+    [
+      "外資連續 2 天買超",
+      5
+    ],
+    [
+      "券商分點：近 3 日買超家數 < 賣超家數（未套用：無權限）",
+      5
+    ],
+    [
+      "籌碼集中度：近 20 日 ≥ 5%，近 5 日 > 10%（未套用：無權限）",
+      5
+    ]
+  ],
+  "scanned": 1983,
+  "download_failed": 0,
+  "notes": [
+    "券商分點條件未套用：FinMind 分點資料需要贊助會員（Your level is free. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor）"
+  ],
+  "matches": [
+    {
+      "code": "4961",
+      "name": "天鈺",
+      "market": "上市",
+      "yahoo": "4961.TW",
+      "close": 192.0,
+      "quote_time": null,
+      "day_high": 194.5,
+      "day_low": 189.5,
+      "volume_lots": 1000,
+      "dif": 3.356,
+      "macd": 3.133,
+      "osc": 0.224,
+      "k": 70.52,
+      "d": 67.81,
+      "bb_mid": 176.22,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        160,
+        262
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 2175317,
+            "yoy_pct": 57.0
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 2109978,
+            "yoy_pct": 50.2
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 1967297,
+            "yoy_pct": 32.9
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 3.21
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 1.86
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 1.57
+          }
+        ]
+      }
+    },
+    {
+      "code": "8045",
+      "name": "達運光電",
+      "market": "上市",
+      "yahoo": "8045.TW",
+      "close": 58.8,
+      "quote_time": null,
+      "day_high": 60.0,
+      "day_low": 55.4,
+      "volume_lots": 430,
+      "dif": 0.65,
+      "macd": 0.575,
+      "osc": 0.075,
+      "k": 70.18,
+      "d": 69.31,
+      "bb_mid": 53.01,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        39,
+        30
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 127598,
+            "yoy_pct": 19.9
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 132509,
+            "yoy_pct": 23.4
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 138605,
+            "yoy_pct": -0.4
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 0.14
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.11
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 0.21
+          }
+        ]
+      }
+    },
+    {
+      "code": "1472",
+      "name": "三洋實業",
+      "market": "上市",
+      "yahoo": "1472.TW",
+      "close": 89.0,
+      "quote_time": null,
+      "day_high": 89.5,
+      "day_low": 88.9,
+      "volume_lots": 17,
+      "dif": 0.056,
+      "macd": 0.036,
+      "osc": 0.02,
+      "k": 54.91,
+      "d": 53.68,
+      "bb_mid": 88.58,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        7,
+        3
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 338770,
+            "yoy_pct": 19.5
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 357593,
+            "yoy_pct": 8.0
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 360176,
+            "yoy_pct": 16.6
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 1.69
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 1.78
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 1.3
+          }
+        ]
+      }
+    },
+    {
+      "code": "1439",
+      "name": "雋揚",
+      "market": "上市",
+      "yahoo": "1439.TW",
+      "close": 29.3,
+      "quote_time": null,
+      "day_high": 29.4,
+      "day_low": 29.0,
+      "volume_lots": 44,
+      "dif": 0.041,
+      "macd": 0.01,
+      "osc": 0.031,
+      "k": 42.95,
+      "d": 39.53,
+      "bb_mid": 28.92,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        12,
+        3
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 966592,
+            "yoy_pct": 11850.9
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 35925,
+            "yoy_pct": -70.8
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 22489,
+            "yoy_pct": -85.2
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 0.49
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.59
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 1.12
+          }
+        ]
+      }
+    },
+    {
+      "code": "6671",
+      "name": "三能-KY",
+      "market": "上市",
+      "yahoo": "6671.TW",
+      "close": 23.5,
+      "quote_time": null,
+      "day_high": 23.5,
+      "day_low": 23.45,
+      "volume_lots": 21,
+      "dif": 0.04,
+      "macd": 0.024,
+      "osc": 0.016,
+      "k": 63.86,
+      "d": 55.1,
+      "bb_mid": 22.97,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        2,
+        3
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 158658,
+            "yoy_pct": -17.4
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 141846,
+            "yoy_pct": -11.4
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 150410,
+            "yoy_pct": 0.9
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 0.39
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.26
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 0.72
+          }
+        ]
+      }
+    }
+  ],
+  "foreign_unknown": [],
+  "elapsed_sec": 77.4,
+  "generated_at_tw": "2026-10-29 19:42:18",
+  "slot_id": "20261029_1942",
+  "slot_label": "19:42 收盤定稿"
+}

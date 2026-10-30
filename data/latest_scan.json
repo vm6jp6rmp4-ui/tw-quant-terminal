@@ -1,17 +1,16 @@
 {
-  "as_of": "2026-10-28",
+  "as_of": "2026-10-29",
   "intraday": false,
   "foreign_dates": [
-    "2026-10-27",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-10-29"
   ],
   "broker_dates": [
-    "2026-10-23",
     "2026-10-27",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-10-29"
   ],
   "conc_dates": [
-    "2026-09-29",
     "2026-09-30",
     "2026-10-01",
     "2026-10-02",
@@ -30,7 +29,8 @@
     "2026-10-22",
     "2026-10-23",
     "2026-10-27",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-10-29"
   ],
   "params": {
     "fast": 12,
@@ -59,31 +59,31 @@
     ],
     [
       "MACD 第一根紅柱",
-      104
+      63
     ],
     [
       "DIF > 0",
-      24
+      15
     ],
     [
       "KD 黃金交叉（最近 1 天內）",
-      7
+      3
     ],
     [
       "收盤在布林中線（50MA）之上",
-      7
+      3
     ],
     [
       "外資連續 2 天買超",
-      5
+      1
     ],
     [
       "券商分點：近 3 日買超家數 < 賣超家數（未套用：無權限）",
-      5
+      1
     ],
     [
       "籌碼集中度：近 20 日 ≥ 5%，近 5 日 > 10%（未套用：無權限）",
-      5
+      1
     ]
   ],
   "scanned": 1983,
@@ -93,299 +93,67 @@
   ],
   "matches": [
     {
-      "code": "4961",
-      "name": "天鈺",
-      "market": "上市",
-      "yahoo": "4961.TW",
-      "close": 192.0,
+      "code": "1268",
+      "name": "漢來美食",
+      "market": "上櫃",
+      "yahoo": "1268.TWO",
+      "close": 180.0,
       "quote_time": null,
-      "day_high": 194.5,
-      "day_low": 189.5,
-      "volume_lots": 1000,
-      "dif": 3.356,
-      "macd": 3.133,
-      "osc": 0.224,
-      "k": 70.52,
-      "d": 67.81,
-      "bb_mid": 176.22,
+      "day_high": 180.0,
+      "day_low": 177.0,
+      "volume_lots": 41,
+      "dif": 0.623,
+      "macd": 0.597,
+      "osc": 0.026,
+      "k": 66.12,
+      "d": 63.88,
+      "bb_mid": 177.15,
       "macd_first_red": true,
       "dif_pos": true,
       "kd_cross": true,
       "above_mid": true,
       "foreign_lots": [
-        160,
-        262
+        6,
+        20
       ],
       "fundamentals": {
         "revenue": [
           {
             "month": "2026/09",
-            "revenue_k": 2175317,
-            "yoy_pct": 57.0
+            "revenue_k": 644332,
+            "yoy_pct": 25.8
           },
           {
             "month": "2026/08",
-            "revenue_k": 2109978,
-            "yoy_pct": 50.2
+            "revenue_k": 593410,
+            "yoy_pct": 20.0
           },
           {
             "month": "2026/07",
-            "revenue_k": 1967297,
-            "yoy_pct": 32.9
-          }
-        ],
-        "eps": [
-          {
-            "quarter": "2026Q2",
-            "eps": 3.21
-          },
-          {
-            "quarter": "2026Q1",
-            "eps": 1.86
-          },
-          {
-            "quarter": "2025Q4",
-            "eps": 1.57
-          }
-        ]
-      }
-    },
-    {
-      "code": "8045",
-      "name": "達運光電",
-      "market": "上市",
-      "yahoo": "8045.TW",
-      "close": 58.8,
-      "quote_time": null,
-      "day_high": 60.0,
-      "day_low": 55.4,
-      "volume_lots": 430,
-      "dif": 0.65,
-      "macd": 0.575,
-      "osc": 0.075,
-      "k": 70.18,
-      "d": 69.31,
-      "bb_mid": 53.01,
-      "macd_first_red": true,
-      "dif_pos": true,
-      "kd_cross": true,
-      "above_mid": true,
-      "foreign_lots": [
-        39,
-        30
-      ],
-      "fundamentals": {
-        "revenue": [
-          {
-            "month": "2026/09",
-            "revenue_k": 127598,
+            "revenue_k": 551405,
             "yoy_pct": 19.9
-          },
-          {
-            "month": "2026/08",
-            "revenue_k": 132509,
-            "yoy_pct": 23.4
-          },
-          {
-            "month": "2026/07",
-            "revenue_k": 138605,
-            "yoy_pct": -0.4
           }
         ],
         "eps": [
           {
             "quarter": "2026Q2",
-            "eps": 0.14
+            "eps": 3.34
           },
           {
             "quarter": "2026Q1",
-            "eps": 0.11
+            "eps": 5.87
           },
           {
             "quarter": "2025Q4",
-            "eps": 0.21
-          }
-        ]
-      }
-    },
-    {
-      "code": "1472",
-      "name": "三洋實業",
-      "market": "上市",
-      "yahoo": "1472.TW",
-      "close": 89.0,
-      "quote_time": null,
-      "day_high": 89.5,
-      "day_low": 88.9,
-      "volume_lots": 17,
-      "dif": 0.056,
-      "macd": 0.036,
-      "osc": 0.02,
-      "k": 54.91,
-      "d": 53.68,
-      "bb_mid": 88.58,
-      "macd_first_red": true,
-      "dif_pos": true,
-      "kd_cross": true,
-      "above_mid": true,
-      "foreign_lots": [
-        7,
-        3
-      ],
-      "fundamentals": {
-        "revenue": [
-          {
-            "month": "2026/09",
-            "revenue_k": 338770,
-            "yoy_pct": 19.5
-          },
-          {
-            "month": "2026/08",
-            "revenue_k": 357593,
-            "yoy_pct": 8.0
-          },
-          {
-            "month": "2026/07",
-            "revenue_k": 360176,
-            "yoy_pct": 16.6
-          }
-        ],
-        "eps": [
-          {
-            "quarter": "2026Q2",
-            "eps": 1.69
-          },
-          {
-            "quarter": "2026Q1",
-            "eps": 1.78
-          },
-          {
-            "quarter": "2025Q4",
-            "eps": 1.3
-          }
-        ]
-      }
-    },
-    {
-      "code": "1439",
-      "name": "雋揚",
-      "market": "上市",
-      "yahoo": "1439.TW",
-      "close": 29.3,
-      "quote_time": null,
-      "day_high": 29.4,
-      "day_low": 29.0,
-      "volume_lots": 44,
-      "dif": 0.041,
-      "macd": 0.01,
-      "osc": 0.031,
-      "k": 42.95,
-      "d": 39.53,
-      "bb_mid": 28.92,
-      "macd_first_red": true,
-      "dif_pos": true,
-      "kd_cross": true,
-      "above_mid": true,
-      "foreign_lots": [
-        12,
-        3
-      ],
-      "fundamentals": {
-        "revenue": [
-          {
-            "month": "2026/09",
-            "revenue_k": 966592,
-            "yoy_pct": 11850.9
-          },
-          {
-            "month": "2026/08",
-            "revenue_k": 35925,
-            "yoy_pct": -70.8
-          },
-          {
-            "month": "2026/07",
-            "revenue_k": 22489,
-            "yoy_pct": -85.2
-          }
-        ],
-        "eps": [
-          {
-            "quarter": "2026Q2",
-            "eps": 0.49
-          },
-          {
-            "quarter": "2026Q1",
-            "eps": 0.59
-          },
-          {
-            "quarter": "2025Q4",
-            "eps": 1.12
-          }
-        ]
-      }
-    },
-    {
-      "code": "6671",
-      "name": "三能-KY",
-      "market": "上市",
-      "yahoo": "6671.TW",
-      "close": 23.5,
-      "quote_time": null,
-      "day_high": 23.5,
-      "day_low": 23.45,
-      "volume_lots": 21,
-      "dif": 0.04,
-      "macd": 0.024,
-      "osc": 0.016,
-      "k": 63.86,
-      "d": 55.1,
-      "bb_mid": 22.97,
-      "macd_first_red": true,
-      "dif_pos": true,
-      "kd_cross": true,
-      "above_mid": true,
-      "foreign_lots": [
-        2,
-        3
-      ],
-      "fundamentals": {
-        "revenue": [
-          {
-            "month": "2026/09",
-            "revenue_k": 158658,
-            "yoy_pct": -17.4
-          },
-          {
-            "month": "2026/08",
-            "revenue_k": 141846,
-            "yoy_pct": -11.4
-          },
-          {
-            "month": "2026/07",
-            "revenue_k": 150410,
-            "yoy_pct": 0.9
-          }
-        ],
-        "eps": [
-          {
-            "quarter": "2026Q2",
-            "eps": 0.39
-          },
-          {
-            "quarter": "2026Q1",
-            "eps": 0.26
-          },
-          {
-            "quarter": "2025Q4",
-            "eps": 0.72
+            "eps": 2.42
           }
         ]
       }
     }
   ],
   "foreign_unknown": [],
-  "elapsed_sec": 68.3,
-  "generated_at_tw": "2026-10-29 23:28:28",
-  "slot_id": "20261029_2328",
-  "slot_label": "23:28 收盤定稿"
+  "elapsed_sec": 68.6,
+  "generated_at_tw": "2026-10-30 14:52:33",
+  "slot_id": "20261030_1452",
+  "slot_label": "14:52 收盤定稿"
 }

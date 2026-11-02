@@ -1,6 +1,17 @@
 {
-  "updated_at_tw": "2026-10-30 23:14:45",
+  "updated_at_tw": "2026-11-02 15:24:42",
   "runs": [
+    {
+      "slot_id": "20261102_1524",
+      "slot_label": "15:24 收盤定稿",
+      "generated_at_tw": "2026-11-02 15:24:42",
+      "as_of": "2026-10-30",
+      "intraday": false,
+      "scanned": 1985,
+      "match_count": 0,
+      "elapsed_sec": 57.4,
+      "file": "data/history/scan_20261102_1524.json"
+    },
     {
       "slot_id": "20261030_2314",
       "slot_label": "23:14 收盤定稿",
@@ -121,17 +132,6 @@
       "match_count": 4,
       "elapsed_sec": 114.1,
       "file": "data/history/scan_20261027_1852.json"
-    },
-    {
-      "slot_id": "20261027_1403",
-      "slot_label": "14:03 收盤定稿",
-      "generated_at_tw": "2026-10-27 14:03:12",
-      "as_of": "2026-10-22",
-      "intraday": false,
-      "scanned": 1980,
-      "match_count": 4,
-      "elapsed_sec": 68.4,
-      "file": "data/history/scan_20261027_1403.json"
     }
   ]
 }

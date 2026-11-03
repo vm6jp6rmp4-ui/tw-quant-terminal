@@ -55,7 +55,7 @@
   "funnel": [
     [
       "有完整日K資料",
-      1983
+      1982
     ],
     [
       "MACD 第一根紅柱",
@@ -442,8 +442,8 @@
     }
   ],
   "foreign_unknown": [],
-  "elapsed_sec": 69.2,
-  "generated_at_tw": "2026-11-03 20:58:08",
-  "slot_id": "20261103_2058",
-  "slot_label": "20:58 收盤定稿"
+  "elapsed_sec": 82.2,
+  "generated_at_tw": "2026-11-04 00:27:27",
+  "slot_id": "20261104_0027",
+  "slot_label": "00:27 收盤定稿"
 }

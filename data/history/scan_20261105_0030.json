@@ -1,0 +1,159 @@
+{
+  "as_of": "2026-11-03",
+  "intraday": false,
+  "foreign_dates": [
+    "2026-11-02",
+    "2026-11-03"
+  ],
+  "broker_dates": [
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03"
+  ],
+  "conc_dates": [
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03"
+  ],
+  "params": {
+    "fast": 12,
+    "slow": 26,
+    "signal": 9,
+    "kd_len": 26,
+    "k_smooth": 3,
+    "d_smooth": 3,
+    "kd_within": 1,
+    "bb_len": 50,
+    "days": 2,
+    "min_lots": 0,
+    "workers": 8,
+    "broker_days": 3,
+    "conc_days": 20,
+    "conc_min": 5,
+    "conc_short_days": 5,
+    "conc_short_min": 10,
+    "json": true,
+    "intraday": false
+  },
+  "funnel": [
+    [
+      "有完整日K資料",
+      1981
+    ],
+    [
+      "MACD 第一根紅柱",
+      17
+    ],
+    [
+      "DIF > 0",
+      6
+    ],
+    [
+      "KD 黃金交叉（最近 1 天內）",
+      1
+    ],
+    [
+      "收盤在布林中線（50MA）之上",
+      1
+    ],
+    [
+      "外資連續 2 天買超",
+      1
+    ],
+    [
+      "券商分點：近 3 日買超家數 < 賣超家數（未套用：無權限）",
+      1
+    ],
+    [
+      "籌碼集中度：近 20 日 ≥ 5%，近 5 日 > 10%（未套用：無權限）",
+      1
+    ]
+  ],
+  "scanned": 1985,
+  "download_failed": 0,
+  "notes": [
+    "券商分點條件未套用：FinMind 分點資料需要贊助會員（Your level is free. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor）"
+  ],
+  "matches": [
+    {
+      "code": "2610",
+      "name": "華航",
+      "market": "上市",
+      "yahoo": "2610.TW",
+      "close": 20.7,
+      "quote_time": null,
+      "day_high": 21.05,
+      "day_low": 20.5,
+      "volume_lots": 29278,
+      "dif": 0.018,
+      "macd": 0.005,
+      "osc": 0.012,
+      "k": 42.88,
+      "d": 38.39,
+      "bb_mid": 20.39,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        18190,
+        16255
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 20933415,
+            "yoy_pct": 31.9
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 21948463,
+            "yoy_pct": 27.2
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 22234995,
+            "yoy_pct": 25.3
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": 0.23
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.85
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": 0.61
+          }
+        ]
+      }
+    }
+  ],
+  "foreign_unknown": [],
+  "elapsed_sec": 49.0,
+  "generated_at_tw": "2026-11-05 00:30:13",
+  "slot_id": "20261105_0030",
+  "slot_label": "00:30 收盤定稿"
+}

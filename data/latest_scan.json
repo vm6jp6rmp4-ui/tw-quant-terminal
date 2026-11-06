@@ -1,17 +1,16 @@
 {
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-05",
   "intraday": false,
   "foreign_dates": [
-    "2026-11-03",
-    "2026-11-04"
+    "2026-11-04",
+    "2026-11-05"
   ],
   "broker_dates": [
-    "2026-11-02",
     "2026-11-03",
-    "2026-11-04"
+    "2026-11-04",
+    "2026-11-05"
   ],
   "conc_dates": [
-    "2026-10-06",
     "2026-10-07",
     "2026-10-08",
     "2026-10-12",
@@ -30,7 +29,8 @@
     "2026-10-30",
     "2026-11-02",
     "2026-11-03",
-    "2026-11-04"
+    "2026-11-04",
+    "2026-11-05"
   ],
   "params": {
     "fast": 12,
@@ -55,11 +55,11 @@
   "funnel": [
     [
       "有完整日K資料",
-      1980
+      1979
     ],
     [
       "MACD 第一根紅柱",
-      24
+      21
     ],
     [
       "DIF > 0",
@@ -67,32 +67,93 @@
     ],
     [
       "KD 黃金交叉（最近 1 天內）",
-      4
+      3
     ],
     [
       "收盤在布林中線（50MA）之上",
-      4
+      3
     ],
     [
       "外資連續 2 天買超",
-      0
+      1
     ],
     [
-      "券商分點：近 3 日買超家數 < 賣超家數",
-      0
+      "券商分點：近 3 日買超家數 < 賣超家數（未套用：無權限）",
+      1
     ],
     [
-      "籌碼集中度：近 20 日 ≥ 5%，近 5 日 > 10%",
-      0
+      "籌碼集中度：近 20 日 ≥ 5%，近 5 日 > 10%（未套用：無權限）",
+      1
     ]
   ],
-  "scanned": 1984,
+  "scanned": 1983,
   "download_failed": 0,
-  "notes": [],
-  "matches": [],
+  "notes": [
+    "券商分點條件未套用：FinMind 分點資料需要贊助會員（Your level is free. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor）"
+  ],
+  "matches": [
+    {
+      "code": "4426",
+      "name": "利勤",
+      "market": "上市",
+      "yahoo": "4426.TW",
+      "close": 8.79,
+      "quote_time": null,
+      "day_high": 9.06,
+      "day_low": 8.34,
+      "volume_lots": 856,
+      "dif": 0.168,
+      "macd": 0.151,
+      "osc": 0.017,
+      "k": 60.54,
+      "d": 54.55,
+      "bb_mid": 7.85,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        33,
+        46
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/09",
+            "revenue_k": 121157,
+            "yoy_pct": 79.3
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 94351,
+            "yoy_pct": 17.5
+          },
+          {
+            "month": "2026/07",
+            "revenue_k": 90592,
+            "yoy_pct": 34.7
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q2",
+            "eps": -0.5
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": -0.28
+          },
+          {
+            "quarter": "2025Q4",
+            "eps": -0.61
+          }
+        ]
+      }
+    }
+  ],
   "foreign_unknown": [],
-  "elapsed_sec": 108.5,
-  "generated_at_tw": "2026-11-06 00:41:42",
-  "slot_id": "20261106_0041",
-  "slot_label": "00:41 收盤定稿"
+  "elapsed_sec": 73.4,
+  "generated_at_tw": "2026-11-06 15:45:47",
+  "slot_id": "20261106_1545",
+  "slot_label": "15:45 收盤定稿"
 }

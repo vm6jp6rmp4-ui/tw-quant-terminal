@@ -136,16 +136,16 @@
         ],
         "eps": [
           {
+            "quarter": "2026Q3",
+            "eps": 6.09
+          },
+          {
             "quarter": "2026Q2",
             "eps": 7.6
           },
           {
             "quarter": "2026Q1",
             "eps": 3.66
-          },
-          {
-            "quarter": "2025Q4",
-            "eps": 2.51
           }
         ]
       }
@@ -210,8 +210,8 @@
     }
   ],
   "foreign_unknown": [],
-  "elapsed_sec": 92.3,
-  "generated_at_tw": "2026-11-11 15:33:56",
-  "slot_id": "20261111_1533",
-  "slot_label": "15:33 收盤定稿"
+  "elapsed_sec": 72.6,
+  "generated_at_tw": "2026-11-11 20:55:19",
+  "slot_id": "20261111_2055",
+  "slot_label": "20:55 收盤定稿"
 }

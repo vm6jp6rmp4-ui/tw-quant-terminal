@@ -1,16 +1,16 @@
-Run at 2026-11-16 15:43:22 (Asia/Taipei)
+Run at 2026-11-16 21:56:40 (Asia/Taipei)
 [run_hourly] 執行選股腳本: /opt/hostedtoolcache/Python/3.11.18/x64/bin/python /home/runner/work/tw-quant-terminal/tw-quant-terminal/scripts/screen.py --json --kd-within 1 --days 2
-股票清單：1985 檔（上市＋上櫃普通股），最新收盤日 2026-11-13
+股票清單：1987 檔（上市＋上櫃普通股），最新收盤日 2026-11-13
 下載日K並計算指標（資料日期 2026-11-13）…
-  200/1985
-  400/1985
-  600/1985
-  800/1985
-  1000/1985
-  1200/1985
-  1400/1985
-  1600/1985
-  1800/1985
+  200/1987
+  400/1987
+  600/1987
+  800/1987
+  1000/1987
+  1200/1987
+  1400/1987
+  1600/1987
+  1800/1987
 
 [run_hourly] 查詢候選股基本面資料 (3 檔)...
-[run_hourly] 完成！已更新 /home/runner/work/tw-quant-terminal/tw-quant-terminal/data/latest_scan.json 與 /home/runner/work/tw-quant-terminal/tw-quant-terminal/data/history/scan_20261116_1543.json (符合: 3 檔)
+[run_hourly] 完成！已更新 /home/runner/work/tw-quant-terminal/tw-quant-terminal/data/latest_scan.json 與 /home/runner/work/tw-quant-terminal/tw-quant-terminal/data/history/scan_20261116_2156.json (符合: 3 檔)

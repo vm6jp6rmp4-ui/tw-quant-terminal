@@ -1,0 +1,217 @@
+{
+  "as_of": "2026-11-17",
+  "intraday": false,
+  "foreign_dates": [
+    "2026-11-16",
+    "2026-11-17"
+  ],
+  "broker_dates": [
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17"
+  ],
+  "conc_dates": [
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17"
+  ],
+  "params": {
+    "fast": 12,
+    "slow": 26,
+    "signal": 9,
+    "kd_len": 26,
+    "k_smooth": 3,
+    "d_smooth": 3,
+    "kd_within": 1,
+    "bb_len": 50,
+    "days": 2,
+    "min_lots": 0,
+    "workers": 8,
+    "broker_days": 3,
+    "conc_days": 20,
+    "conc_min": 5,
+    "conc_short_days": 5,
+    "conc_short_min": 10,
+    "json": true,
+    "intraday": false
+  },
+  "funnel": [
+    [
+      "有完整日K資料",
+      1983
+    ],
+    [
+      "MACD 第一根紅柱",
+      32
+    ],
+    [
+      "DIF > 0",
+      5
+    ],
+    [
+      "KD 黃金交叉（最近 1 天內）",
+      2
+    ],
+    [
+      "收盤在布林中線（50MA）之上",
+      2
+    ],
+    [
+      "外資連續 2 天買超",
+      2
+    ],
+    [
+      "券商分點：近 3 日買超家數 < 賣超家數（未套用：無權限）",
+      2
+    ],
+    [
+      "籌碼集中度：近 20 日 ≥ 5%，近 5 日 > 10%（未套用：無權限）",
+      2
+    ]
+  ],
+  "scanned": 1987,
+  "download_failed": 0,
+  "notes": [
+    "券商分點條件未套用：FinMind 分點資料需要贊助會員（Your level is free. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor）"
+  ],
+  "matches": [
+    {
+      "code": "2923",
+      "name": "鼎固-KY",
+      "market": "上市",
+      "yahoo": "2923.TW",
+      "close": 31.6,
+      "quote_time": null,
+      "day_high": 31.6,
+      "day_low": 29.0,
+      "volume_lots": 545,
+      "dif": 0.651,
+      "macd": 0.635,
+      "osc": 0.017,
+      "k": 47.97,
+      "d": 43.37,
+      "bb_mid": 26.1,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        135,
+        323
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/10",
+            "revenue_k": 484599,
+            "yoy_pct": 80.1
+          },
+          {
+            "month": "2026/09",
+            "revenue_k": 574459,
+            "yoy_pct": 131.3
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 772991,
+            "yoy_pct": 219.0
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q3",
+            "eps": 0.09
+          },
+          {
+            "quarter": "2026Q2",
+            "eps": -0.13
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.02
+          }
+        ]
+      }
+    },
+    {
+      "code": "1438",
+      "name": "三地開發",
+      "market": "上市",
+      "yahoo": "1438.TW",
+      "close": 21.95,
+      "quote_time": null,
+      "day_high": 21.95,
+      "day_low": 21.7,
+      "volume_lots": 38,
+      "dif": 0.035,
+      "macd": 0.029,
+      "osc": 0.006,
+      "k": 52.04,
+      "d": 42.99,
+      "bb_mid": 21.56,
+      "macd_first_red": true,
+      "dif_pos": true,
+      "kd_cross": true,
+      "above_mid": true,
+      "foreign_lots": [
+        5,
+        13
+      ],
+      "fundamentals": {
+        "revenue": [
+          {
+            "month": "2026/10",
+            "revenue_k": 51766,
+            "yoy_pct": -89.8
+          },
+          {
+            "month": "2026/09",
+            "revenue_k": 323181,
+            "yoy_pct": 1566.1
+          },
+          {
+            "month": "2026/08",
+            "revenue_k": 406071,
+            "yoy_pct": 41420.6
+          }
+        ],
+        "eps": [
+          {
+            "quarter": "2026Q3",
+            "eps": 0.58
+          },
+          {
+            "quarter": "2026Q2",
+            "eps": -0.43
+          },
+          {
+            "quarter": "2026Q1",
+            "eps": 0.65
+          }
+        ]
+      }
+    }
+  ],
+  "foreign_unknown": [],
+  "elapsed_sec": 123.0,
+  "generated_at_tw": "2026-11-18 16:17:16",
+  "slot_id": "20261118_1617",
+  "slot_label": "16:17 收盤定稿"
+}
